@@ -1,24 +1,20 @@
 package com.SARC.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "class")
+@Table(name = "classes")
 public class ClassEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int IdClass;
+    @Column(name = "id_class")
+    private long IdClass;
 
     @Column(name = "time_class")
     private String timeClass;
-
-    @Column(name = "professor_id")
+    @ManyToOne
+    @JoinColumn(name = "professor_id", referencedColumnName = "professorId")
     private ProfessorEntity professor;
 
     public ProfessorEntity getProfessor() {
@@ -29,7 +25,7 @@ public class ClassEntity {
         this.professor = professor;
     }
 
-    public int getIdClass() {
+    public long getIdClass() {
         return IdClass;
     }
 

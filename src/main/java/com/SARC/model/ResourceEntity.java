@@ -16,7 +16,6 @@ public class ResourceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codResource;
 
-    @NonNull
     @Column(name = "description")
     private String Description;
 

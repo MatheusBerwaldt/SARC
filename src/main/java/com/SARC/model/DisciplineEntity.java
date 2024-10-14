@@ -13,7 +13,6 @@ import jakarta.persistence.Table;
 public class DisciplineEntity {
     
     @Id
-    @ManyToOne
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codDiscipline;
 
