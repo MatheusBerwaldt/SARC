@@ -1,6 +1,8 @@
 package com.SARC.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
@@ -10,6 +12,9 @@ import jakarta.persistence.Column;
 public class ProfessorEntity {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int Idprofessor;
+
     @Column(name="name")
     private String name;
 

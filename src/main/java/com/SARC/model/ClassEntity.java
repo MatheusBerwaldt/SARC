@@ -13,17 +13,28 @@ public class ClassEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int codClass;
+    private int IdClass;
 
     @Column(name = "time_class")
     private String timeClass;
 
-    public int getCodClass() {
-        return codClass;
+    @Column(name = "professor_id")
+    private ProfessorEntity professor;
+
+    public ProfessorEntity getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(ProfessorEntity professor) {
+        this.professor = professor;
+    }
+
+    public int getIdClass() {
+        return IdClass;
     }
 
     public void setCodClass(int codClass) {
-        this.codClass = codClass;
+        this.IdClass = codClass;
     }
 
     public String getTimeClass() {
