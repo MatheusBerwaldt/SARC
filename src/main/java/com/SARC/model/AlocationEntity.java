@@ -1,12 +1,15 @@
 package com.SARC.model;
 import java.time.LocalDate;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+
+import jakarta.persistence.*;
 
 
 @Entity
+@Table(name = "alocations")
 public class AlocationEntity{
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int alocationId;
     @Column(name = "date_alocation", columnDefinition = "DATE")
     private LocalDate dateAlocation;
 
