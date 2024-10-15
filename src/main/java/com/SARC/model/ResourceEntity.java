@@ -1,13 +1,23 @@
 package com.SARC.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "resources")
 public class ResourceEntity {
     
@@ -15,22 +25,15 @@ public class ResourceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codResource;
 
+    @NonNull
     @Column(name = "description")
-    private String Description;
+    private String description;
 
-    public int getCodResource() {
-        return codResource;
-    }
+    @OneToMany
+    private List<AlocationEntity> alocations;
 
-    public void setCodResource(int codResource) {
+    public ResourceEntity(Integer codResource, String description) {
         this.codResource = codResource;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 }

@@ -9,8 +9,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "classes")
 public class ClassEntity {
 
@@ -26,24 +32,4 @@ public class ClassEntity {
     @ManyToOne
     @JoinColumn(name = "professor_id", referencedColumnName = "professorId")
     private ProfessorEntity professor;
-
-    public Long getIdClass() {
-        return idClass;
-    }
-
-    public void setIdClass(Long idClass) {
-        this.idClass = idClass;
-    }
-
-    public String getTimeClass() {
-        return timeClass;
-    }
-
-    public void setTimeClass(String timeClass) {
-        this.timeClass = timeClass;
-    }
-    
-    public ProfessorEntity getProfessor() {
-        return professor;
-    }
 }

@@ -1,5 +1,8 @@
 package com.SARC.repository;
 
-public class ProfessorRepository {
-    
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ProfessorRepository{
+ 
 }
