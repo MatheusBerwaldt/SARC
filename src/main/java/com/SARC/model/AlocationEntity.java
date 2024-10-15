@@ -13,8 +13,10 @@ public class AlocationEntity{
     @Column(name = "date_alocation", columnDefinition = "DATE")
     private LocalDate dateAlocation;
 
-    @Column(name = "class_id")
+    @ManyToOne
+    @JoinColumn(name = "id_class")
     private ClassEntity classA;
+
 
     public ClassEntity getClassA() {
         return classA;
@@ -23,7 +25,6 @@ public class AlocationEntity{
     public void setClassA(ClassEntity classA) {
         this.classA = classA;
     }
-
     public LocalDate getDateAlocation() {
         return dateAlocation;
     }
