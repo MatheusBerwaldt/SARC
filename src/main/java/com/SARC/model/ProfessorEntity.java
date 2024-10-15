@@ -30,4 +30,7 @@ public class ProfessorEntity {
 
     @Column(name = "email")
     private String email;
+
+    @OneToMany
+    private List<ClassEntity> classes;
 }
