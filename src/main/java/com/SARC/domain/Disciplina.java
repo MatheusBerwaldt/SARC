@@ -4,16 +4,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "disciplinas")
 public class Disciplina {
 
     @Id
-    private String codigo;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codigo;
+
+    @Column(name = "nome")
     private String nome;
 
     @Column(name = "carga_horaria")

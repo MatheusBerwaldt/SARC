@@ -32,7 +32,7 @@ public class DisciplinaController {
     }
 
     @PutMapping("/{codigo}")
-    public Disciplina atualizarDisciplina(@PathVariable String codigo, @RequestBody Disciplina disciplina) {
+    public Disciplina atualizarDisciplina(@PathVariable Long codigo, @RequestBody Disciplina disciplina) {
         disciplina.setCodigo(codigo);
         return disciplinaService.salvar(disciplina);
     }

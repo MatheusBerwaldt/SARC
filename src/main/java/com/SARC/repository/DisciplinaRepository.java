@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DisciplinaRepository extends JpaRepository<Disciplina, String> {
-    boolean existsByCodigo(String codigo);
+    boolean existsByCodigo(Long codigo);
 }
