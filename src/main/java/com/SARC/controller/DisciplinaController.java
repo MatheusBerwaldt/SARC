@@ -22,7 +22,7 @@ public class DisciplinaController {
     }
 
     @GetMapping("/{codigo}")
-    public Disciplina obterPorCodigo(@PathVariable String codigo) {
+    public Disciplina obterPorCodigo(@PathVariable Long codigo) {
         return disciplinaService.obterPorCodigo(codigo);
     }
 
@@ -38,7 +38,7 @@ public class DisciplinaController {
     }
 
     @DeleteMapping("/{codigo}")
-    public void deletarDisciplina(@PathVariable String codigo) {
+    public void deletarDisciplina(@PathVariable Long codigo) {
         disciplinaService.deletarPorCodigo(codigo);
     }
 }

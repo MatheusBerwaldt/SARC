@@ -19,7 +19,7 @@ public class DisciplinaService {
         return disciplinaRepository.findAll();
     }
 
-    public Disciplina obterPorCodigo(String codigo) {
+    public Disciplina obterPorCodigo(Long codigo) {
         return disciplinaRepository.findById(codigo).orElse(null);
     }
 
@@ -30,7 +30,7 @@ public class DisciplinaService {
         return disciplinaRepository.save(disciplina);
     }
 
-    public void deletarPorCodigo(String codigo) {
+    public void deletarPorCodigo(Long codigo) {
         disciplinaRepository.deleteById(codigo);
     }
 }
