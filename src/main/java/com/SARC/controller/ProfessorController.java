@@ -1,41 +1,44 @@
 package com.SARC.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.SARC.domain.Professor;
+import com.SARC.service.ProfessorService;
+import org.springframework.web.bind.annotation.*;
 
-import com.SARC.dto.ProfessorDTO;
-import com.SARC.model.ProfessorEntity;
-import com.SARC.service.IProfessorService;
+import java.util.List;
 
 @RestController
-@RequestMapping("/professors")
+@RequestMapping("/professor")
 public class ProfessorController {
-    @Autowired
-    private IProfessorService professorService;
 
-    @PostMapping
-    public ProfessorEntity save(@RequestBody ProfessorDTO professorDTO){
-        return this.professorService.save(professorDTO);
+    private final ProfessorService professorService;
+
+    public ProfessorController(ProfessorService professorService) {
+        this.professorService = professorService;
+    }
+
+    @GetMapping
+    public List<Professor> listarTodos() {
+        return professorService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProfessorEntity> getByID(@PathVariable(value = "id") long professorId){
-        ProfessorEntity professor = this.professorService.getById(professorId);
-        return (professor == null) ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : ResponseEntity.ok(professor);
+    public Professor obterPorId(@PathVariable Long id) {
+        return professorService.obterPorId(id);
+    }
+
+    @PostMapping
+    public Professor criarProfessor(@RequestBody Professor professor) {
+        return professorService.salvar(professor);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProfessorEntity> editByID(@PathVariable(value = "id") long professorId, @RequestBody ProfessorDTO professorDTO){
-        ProfessorEntity save = this.professorService.editById(professorId, professorDTO);
-        return(save == null) ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : ResponseEntity.ok(save);
+    public Professor atualizarProfessor(@PathVariable Long id, @RequestBody Professor professor) {
+        professor.setId(id);
+        return professorService.salvar(professor);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletarProfessor(@PathVariable Long id) {
+        professorService.deletarPorId(id);
+    }
 }
