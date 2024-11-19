@@ -1,8 +1,8 @@
-# SARC - Simulador de Análise de Redes e Custos
+# SARC - SIMULADOR DE ANÁLISE DE REDES E CUSTOS
 
 Este projeto consiste em um simulador para análise de sistemas de filas, redes e custos. Ele foi desenvolvido com o objetivo de estudar gargalos, propor melhorias e realizar análises estatísticas para suportar decisões em sistemas complexos.
 
-## Funcionalidades
+## FUNCIONALIDADES
 
 - Simulação de sistemas de filas com parâmetros customizáveis.
 - Análise de desempenho, incluindo:
@@ -12,7 +12,7 @@ Este projeto consiste em um simulador para análise de sistemas de filas, redes 
 - Configuração de múltiplas filas e roteamento entre elas via arquivo YAML.
 - Relatórios detalhados sobre os resultados da simulação.
 
-## Estrutura do Projeto
+## ESTRUTURA DE PROJETO
 
 ```plaintext
 SARC/
