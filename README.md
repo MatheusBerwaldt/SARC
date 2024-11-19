@@ -7,7 +7,7 @@ Este projeto consiste em um simulador para análise de sistemas de filas, redes 
 - Simulação de sistemas de filas com parâmetros customizáveis.
 - Análise de desempenho, incluindo:
   - **Probabilidades dos estados das filas**.
-  - **Índices de desempenho**, como tempo de espera e ocupação dos servidores.
+  - **Índices de desempenho**, tempo de espera e ocupação dos servidores.
   - **Comparação entre modelos original e otimizado**.
 - Configuração de múltiplas filas e roteamento entre elas via arquivo YAML.
 - Relatórios detalhados sobre os resultados da simulação.
